@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.banked.checkout.Banked
-import com.banked.checkout.Banked.OnPaymentSessionListener
 
 private const val API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 private const val CONTINUE_URL = "XXXXXXXX"
@@ -19,25 +18,7 @@ class PaymentFragment : Fragment(), Banked.OnPaymentSessionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val dsf = View.OnClickListener {
-
-        }
-
-        Banked.onPaymentSessionListener = object:OnPaymentSessionListener {
-
-            override fun onPaymentFailed() {
-
-            }
-
-            override fun onPaymentSuccess(
-                paymentId: String,
-                amountFormatted: String,
-                providerName: String,
-                payeeName: String
-            ) {
-
-            }
-        }
+        Banked.onPaymentSessionListener = this
         Banked.apiKey = API_KEY
         Banked.apiServer = Banked.Server.STAGING
     }
