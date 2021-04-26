@@ -3,7 +3,6 @@
 ## Setup
 Banked Android SDK works on Android 5.0+ (API 21+) and Java 8+
 
-Add the latest version is:
 ```
 implementation("com.banked:checkout:2.0.0")
 ```
