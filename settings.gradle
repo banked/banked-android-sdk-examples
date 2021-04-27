@@ -1,0 +1,3 @@
+include ':navigation-components'
+include ':kotlin-fragment'
+include ':java-activity'
