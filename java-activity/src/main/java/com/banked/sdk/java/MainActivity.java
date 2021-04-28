@@ -7,10 +7,11 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.banked.checkout.Banked;
+import com.banked.checkout.OnPaymentSessionListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class MainActivity extends AppCompatActivity implements Banked.OnPaymentSessionListener {
+public class MainActivity extends AppCompatActivity implements OnPaymentSessionListener {
 
     private static final String API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     private static final String CONTINUE_URL = "XXXXXXXX";
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements Banked.OnPaymentS
 
         Banked.setOnPaymentSessionListener(this);
         Banked.setApiKey(API_KEY);
-        Banked.setApiServer(Banked.Server.STAGING);
     }
 
     @Override
