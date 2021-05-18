@@ -64,15 +64,14 @@ override fun onStart() {
 In order to notify the calling application when the payment is a success/fail you can set a listener to listen for these events
 ```
 Banked.onPaymentSessionListener = object:OnPaymentSessionListener {
-    override fun onPaymentFailed() {}
-
-    override fun onPaymentSuccess(
-        paymentId: String,
-        amountFormatted: String,
-        providerName: String,
-        payeeName: String
-        ) {}
+    override fun onPaymentFailed(paymentResult: PaymentResult) {
+        // Handle payment success
     }
+
+    override fun onPaymentSuccess(paymentResult: PaymentResult) {
+        // Handle payment success 
+    }
+}
 ```
 
 ## Example projects

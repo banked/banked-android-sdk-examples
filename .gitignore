@@ -10,6 +10,7 @@ out/
 .gradle/
 build/
 local.properties
+.github.properties
 proguard/
 *.log
 .navigation/

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.banked.checkout.Banked;
 import com.banked.checkout.OnPaymentSessionListener;
+import com.banked.checkout.feature.status.model.PaymentResult;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -39,15 +40,12 @@ public class MainActivity extends AppCompatActivity implements OnPaymentSessionL
     }
 
     @Override
-    public void onPaymentFailed() {
-        Log.d("Banked", "Payment failed");
+    public void onPaymentFailed(@NotNull PaymentResult paymentResult) {
+        Log.d("Banked", "Payment failed: " + paymentResult);
     }
 
     @Override
-    public void onPaymentSuccess(@NotNull String s,
-                                 @NotNull String s1,
-                                 @NotNull String s2,
-                                 @NotNull String s3) {
-        Log.d("Banked", "Payment success");
+    public void onPaymentSuccess(@NotNull PaymentResult paymentResult) {
+        Log.d("Banked", "Payment success: " + paymentResult);
     }
 }

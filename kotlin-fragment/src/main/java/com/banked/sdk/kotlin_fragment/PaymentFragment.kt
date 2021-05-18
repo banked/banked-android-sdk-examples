@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.banked.checkout.Banked
 import com.banked.checkout.OnPaymentSessionListener
+import com.banked.checkout.feature.status.model.PaymentResult
 
 private const val API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 private const val CONTINUE_URL = "XXXXXXXX"
@@ -21,6 +22,11 @@ class PaymentFragment : Fragment(), OnPaymentSessionListener {
 
         Banked.onPaymentSessionListener = this
         Banked.apiKey = API_KEY
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Banked.onStart(fragment = this)
     }
 
     override fun onCreateView(
@@ -43,21 +49,11 @@ class PaymentFragment : Fragment(), OnPaymentSessionListener {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        Banked.onStart(fragment = this)
+    override fun onPaymentFailed(paymentResult: PaymentResult) {
+        Log.d("Banked", "Payment failed: $paymentResult")
     }
 
-    override fun onPaymentFailed() {
-        Log.d("Banked", "Payment failed")
-    }
-
-    override fun onPaymentSuccess(
-        paymentId: String,
-        amountFormatted: String,
-        providerName: String,
-        payeeName: String
-    ) {
-        Log.d("Banked", "Payment success")
+    override fun onPaymentSuccess(paymentResult: PaymentResult) {
+        Log.d("Banked", "Payment success: $paymentResult")
     }
 }
