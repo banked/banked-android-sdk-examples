@@ -1,5 +1,8 @@
 # Banked Android SDK Setup and Examples
 
+## Further reading
+You can find more information about Banked in our [Developer Docs](https://developer.banked.com/docs/introduction), including a guide on how to set up Payment Sessions.
+
 ## Setup
 Banked Android SDK works on Android 5.0+ (API 21+) and Java 8+
 
@@ -21,7 +24,7 @@ override fun onStart() {
 } 
 ```
 4. Add support for deep linking back into the SDK from the bank
-    1. If you use a single activity and multiple fragments with the Jetpack navigation library. Add the following:
+    1. If you use a single activity and multiple fragments with the Jetpack navigation library, add the following:
         1. Add the navigation graph in your main activity in the application manifest
         ``` <nav-graph android:value="@navigation/your_nav_graph" />```
 
@@ -34,7 +37,7 @@ override fun onStart() {
         </fragment>
         ```
 
-    2. If you do not use the Jetpack navigation library you need to add the deep link support into the app manaifest
+    2. If you do not use the Jetpack navigation library, you need to add the deep link support into the app manaifest
     ```
     <activity android:name="<Your activity>">
         <intent-filter>
@@ -75,7 +78,7 @@ Banked.onPaymentSessionListener = object:OnPaymentSessionListener {
 ```
 
 ## Example projects
-There are examples of how to integrate the SDK within this project. These are
+There are examples of how to integrate the Banked SDK within this project. These are
 - Kotlin integration via a fragment __(kotlin-fragment)__
 - Kotlin integration via a fragment using the Jetpack navigation library __(navigation-components)__
 - Java integration via an activity __(java-activity)__
