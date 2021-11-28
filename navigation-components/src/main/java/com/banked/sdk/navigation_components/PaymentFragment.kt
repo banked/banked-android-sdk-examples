@@ -20,13 +20,13 @@ class PaymentFragment : Fragment(), OnPaymentSessionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Banked.onPaymentSessionListener = this
-        Banked.apiKey = API_KEY
+        Banked.setOnPaymentSessionListener(this)
+        Banked.setApiKey(API_KEY)
     }
 
     override fun onStart() {
         super.onStart()
-        Banked.onStart(fragment = this)
+        Banked.onStart(this)
     }
 
     override fun onCreateView(
@@ -40,12 +40,8 @@ class PaymentFragment : Fragment(), OnPaymentSessionListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.make_payment).setOnClickListener { _ ->
-            Banked.startPayment(
-                fragment = this,
-                paymentId = PAYMENT_ID,
-                continueUrl = CONTINUE_URL
-            )
+        view.findViewById<Button>(R.id.make_payment).setOnClickListener {
+            Banked.startPayment(this, PAYMENT_ID, CONTINUE_URL)
         }
     }
 
@@ -55,5 +51,9 @@ class PaymentFragment : Fragment(), OnPaymentSessionListener {
 
     override fun onPaymentSuccess(paymentResult: PaymentResult) {
         Log.d("Banked", "Payment success: $paymentResult")
+    }
+
+    override fun onPaymentAborted() {
+        Log.d("Banked", "Payment aborted")
     }
 }
