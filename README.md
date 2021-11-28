@@ -7,7 +7,7 @@ You can find more information about Banked in our [Developer Docs](https://devel
 Banked Android SDK works on Android 5.0+ (API 21+) and Java 8+
 
 ```
-implementation("com.banked:checkout:2.0.0")
+implementation("com.banked:checkout:2.0.1-beta7")
 ```
 
 ## Quick start
