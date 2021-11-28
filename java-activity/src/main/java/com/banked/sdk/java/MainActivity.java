@@ -25,9 +25,7 @@ public class MainActivity extends AppCompatActivity implements OnPaymentSessionL
 
         final Button makePaymentButton = findViewById(R.id.make_payment);
 
-        makePaymentButton.setOnClickListener(v -> {
-            Banked.startPayment(this, PAYMENT_ID, CONTINUE_URL);
-        });
+        makePaymentButton.setOnClickListener(v -> Banked.startPayment(this, PAYMENT_ID, CONTINUE_URL));
 
         Banked.setOnPaymentSessionListener(this);
         Banked.setApiKey(API_KEY);
@@ -47,5 +45,10 @@ public class MainActivity extends AppCompatActivity implements OnPaymentSessionL
     @Override
     public void onPaymentSuccess(@NotNull PaymentResult paymentResult) {
         Log.d("Banked", "Payment success: " + paymentResult);
+    }
+
+    @Override
+    public void onPaymentAborted() {
+        Log.d("Banked", "Payment aborted");
     }
 }
