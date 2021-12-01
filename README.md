@@ -7,7 +7,7 @@ You can find more information about Banked in our [Developer Docs](https://devel
 Banked Android SDK works on Android 5.0+ (API 21+) and Java 8+
 
 ```
-implementation("com.banked:checkout:2.0.1-beta7")
+implementation("com.banked:checkout:2.0.1-beta8")
 ```
 
 ## Quick start
@@ -75,6 +75,16 @@ Banked.onPaymentSessionListener = object:OnPaymentSessionListener {
         // Handle payment success 
     }
 }
+```
+
+## SDK logging
+The SDK log setting is handled by setting the ```LogLevel```. This can be done as follows
+```
+Banked.logLevel = LogLevel.DEBUG
+```
+To disable logging completely for when creating release builds for example, it can be done by setting
+```
+Banked.logLevel = LogLevel.NONE
 ```
 
 ## Example projects
