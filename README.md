@@ -4,10 +4,10 @@
 You can find more information about Banked in our [Developer Docs](https://developer.banked.com/docs/introduction), including a guide on how to set up Payment Sessions.
 
 ## Setup
-Banked Android SDK works on Android 5.0+ (API 21+) and Java 8+
+Banked Android SDK works on Android 5.0+ (API 21+) and Java 11
 
 ```
-implementation("com.banked:checkout:2.0.1-beta8")
+implementation("com.banked:checkout:2.0.1-beta12")
 ```
 
 ## Quick start
@@ -20,7 +20,7 @@ Banked.apiKey = "Add your API key here"
 ```
 override fun onStart() {
     super.onStart()
-    Banked.onStart(fragment = this)
+    Banked.onStart(this)
 } 
 ```
 4. Add support for deep linking back into the SDK from the bank
@@ -57,9 +57,9 @@ override fun onStart() {
 5. Call the following to start a payment
     ```
     Banked.startPayment(
-        fragment = this,
-        paymentId = "Your payment ID",
-        continueUrl = "Your continue URL"
+        this,
+        "Your payment ID",
+        "Your continue URL"
     )
     ```
 
@@ -74,17 +74,21 @@ Banked.onPaymentSessionListener = object:OnPaymentSessionListener {
     override fun onPaymentSuccess(paymentResult: PaymentResult) {
         // Handle payment success 
     }
+    
+    override fun onPaymentAborted() {
+        // Handle payment aborted
+    }
 }
 ```
 
 ## SDK logging
 The SDK log setting is handled by setting the ```LogLevel```. This can be done as follows
 ```
-Banked.logLevel = LogLevel.DEBUG
+Banked.setLogLevel(LogLevel.DEBUG)
 ```
 To disable logging completely for when creating release builds for example, it can be done by setting
 ```
-Banked.logLevel = LogLevel.NONE
+Banked.setLogLevel(LogLevel.NONE)
 ```
 
 ## Example projects
