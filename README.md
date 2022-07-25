@@ -6,8 +6,28 @@ You can find more information about Banked in our [Developer Docs](https://devel
 ## Setup
 Banked Android SDK works on Android 5.0+ (API 21+) and Java 11
 
+To access the dependency you must first [create Github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+
+Once that is done you must add the following repository to your root build.gradle file
 ```
-implementation("com.banked:checkout:2.0.1-beta12")
+allprojects {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/banked/banked-android-sdk")
+            credentials {
+                username = <enter your username here>
+                password = <enter your PAT token here>
+            }
+        }
+    }
+}
+```
+
+You can then access the artifact from the following
+
+```
+implementation("com.banked:checkout:2.0.4")
 ```
 
 ## Quick start
