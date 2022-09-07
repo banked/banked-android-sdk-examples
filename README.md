@@ -101,6 +101,12 @@ Banked.onPaymentSessionListener = object:OnPaymentSessionListener {
 }
 ```
 
+## Custom base url
+If you need to specify a custom URL for your Banked API endpoint, this can be done as shown below:
+```
+Banked.baseUrl = "https://my-custom-base-url.com/
+```
+
 ## SDK logging
 The SDK log setting is handled by setting the ```LogLevel```. This can be done as follows
 ```
