@@ -27,7 +27,7 @@ allprojects {
 You can then access the artifact from the following
 
 ```
-implementation("com.banked:checkout:2.1.1")
+implementation("com.banked:checkout:2.2.0")
 ```
 
 ## Quick start
