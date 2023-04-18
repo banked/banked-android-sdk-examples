@@ -20,8 +20,8 @@ class PaymentFragment : Fragment(), OnPaymentSessionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Banked.setOnPaymentSessionListener(this)
-        Banked.setApiKey(API_KEY)
+        Banked.onPaymentSessionListener = this
+        Banked.apiKey = API_KEY
     }
 
     override fun onStart() {
