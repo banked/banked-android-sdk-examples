@@ -27,7 +27,7 @@ allprojects {
 You can then access the artifact from the following
 
 ```
-implementation("com.banked:checkout:2.2.0")
+implementation("com.banked:checkout:2.4.2")
 ```
 
 ## Quick start
@@ -116,6 +116,14 @@ To disable logging completely for when creating release builds for example, it c
 ```
 Banked.setLogLevel(LogLevel.NONE)
 ```
+
+## Supported languages
+The SDK currently supports the following languages:
+
+- English (en)
+- French (fr)
+- German (de)
+- Spanish (es)
 
 ## Example projects
 There are examples of how to integrate the Banked SDK within this project. These are
