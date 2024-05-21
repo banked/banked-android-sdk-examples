@@ -27,7 +27,7 @@ allprojects {
 You can then access the artifact from the following
 
 ```
-implementation("com.banked:checkout:2.5.2")
+implementation("com.banked:checkout:2.5.8")
 ```
 
 ## Quick start
@@ -76,10 +76,11 @@ override fun onStart() {
     ```
 5. Call the following to start a payment
     ```
-    Banked.startPayment(
-        this,
-        "Your payment ID",
-        "Your continue URL"
+     Banked.startPayment(
+        fragment = this,
+        paymentId = "Your payment ID",
+        continueUrl = "Your continue URL",
+        countryCodeProviderSort = "en",
     )
     ```
 
